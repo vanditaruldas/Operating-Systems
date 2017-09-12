@@ -9,8 +9,8 @@
 
 
 
-			   ARGUMENT PASSING
-			   ================
+ARGUMENT PASSING
+================
 
 ---- DATA STRUCTURES ----
 
@@ -43,8 +43,8 @@ In pintos the kernel separates commands into command line(program name) and argu
 1) The Unix system can check if the argumentname and if the number of arguments are within limit before passing to kernel. This avoids kernel failures.
 2) Less time spent in kernel.
 
-			     SYSTEM CALLS
-			     ============
+SYSTEM CALLS
+============
 
 ---- DATA STRUCTURES ----
 
