@@ -90,65 +90,6 @@ For lock :
 2) priority is the highest priority given to the holder of this lock.
 3) base_priority is the priority at which the thread acquired this lock.
 
-
->> B2: Explain the data structure used to track priority donation.
->> Use ASCII art to diagram a nested donation.  (Alternately, submit a
->> .png file.)
-
-+------------+
-
-|            |
-
-|  Thread 1  |
-
-+------------+
-
-|Locks Held List Thread 1
-
-|
-+-----+------+                       +------------+
-
-|   Lock 1   | <---------------------+            |
-
-+-----+------+     Waiting Lock      |  Thread 2  |
-
-|                              +------------+
-
-|                                    |Locks Held List Thread 2
-
-+-----+------+                             |
-
-|   Lock 2   | <-------+             +-----+------+                       +------------+
-
-+------------+         |             |   Lock 3   | <---------------------+            |
-
-|             +------------+     Waiting Lock      |  Thread 3  |
-
-Waiting Lock |                                                  +------------+
-
-|                                                        |Locks Held List Thread 3
-
-+------------+                                           |
-
-|            |                                     +-----+------+
-
-|  Thread 4  |                                     |   Lock 4   |
-
-+------------+                                     +------------+
-
-|Locks Held List Thread 4
-
-|
-
-+-----+------+                       +------------+
-
-|   Lock 5   | <---------------------+            |
-
-+------------+     Waiting Lock      |  Thread 5  |
-                                                            +------------+
-
-
-
 ---- ALGORITHMS ----
 
 >> B3: How do you ensure that the highest priority thread waiting for
@@ -207,51 +148,20 @@ For thread.c
 
 ---- ALGORITHMS ----
 
->> C2: Suppose threads A, B, and C have nice values 0, 1, and 2.  Each
->> has a recent_cpu value of 0.  Fill in the table below showing the
->> scheduling decision and the priority and recent_cpu values for each
->> thread after each given number of timer ticks:
-
-timer  recent_cpu    priority   thread
-
-ticks   A   B   C   A   B   C   to run
-
------  --  --  --  --  --  --   ------
-
-0      0   0   0  63  61  59     A
-
-4      4   0   0  62  61  59     A
-
-8      8   0   0  61  61  59     B
-
-12      8   4   0  61  60  59     A
-
-16      12  4   0  60  60  59     B
-
-20      12  8   0  60  59  59     A
-
-24      16  8   0  59  59  59     C
-
-28      16  8   4  59  59  58     B
-
-32      16  12  4  59  58  58     A
-
-36      20  12  4  58  58  58     C
-
->> C3: Did any ambiguities in the scheduler specification make values
+>> C2: Did any ambiguities in the scheduler specification make values
 >> in the table uncertain?  If so, what rule did you use to resolve
 >> them?  Does this match the behavior of your scheduler?
 
 It does not say if two threads are the same priority which thread will be scheduled. I scheduled the thread that has not run recently. That is how I have order the threads in my ready list.
 
->> C4: How is the way you divided the cost of scheduling between code
+>> C3: How is the way you divided the cost of scheduling between code
 >> inside and outside interrupt context likely to affect performance?
 
 Most of the calculations are done inside the timer_interrupt which has interrupt disabled. Only the nice value is set outside interrupt but the interrupt has to be turned of as the timer_interrupt cant taake locks. In a system with many threads, this is a very inefficient way to calcuate values as it will affect performance.
 
 ---- RATIONALE ----
 
->> C5: Briefly critique your design, pointing out advantages and
+>> C4: Briefly critique your design, pointing out advantages and
 >> disadvantages in your design choices.  If you were to have extra
 >> time to work on this part of the project, how might you choose to
 >> refine or improve your design?
