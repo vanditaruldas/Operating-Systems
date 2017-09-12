@@ -10,8 +10,8 @@ ALARM CLOCK
 
 ---- DATA STRUCTURES ----
 
->> A1: Copy here the declaration of each new or changed `struct' or
->> `struct' member, global or static variable, `typedef', or
+>> A1: Copy here the declaration of each new or changed struct' or
+>> struct' member, global or static variable, typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
 In thread.h :
@@ -64,8 +64,8 @@ PRIORITY SCHEDULING
 
 ---- DATA STRUCTURES ----
 
->> B1: Copy here the declaration of each new or changed `struct' or
->> `struct' member, global or static variable, `typedef', or
+>> B1: Copy here the declaration of each new or changed struct' or
+>> struct' member, global or static variable, typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
 In thread.h
@@ -96,31 +96,55 @@ For lock :
 >> .png file.)
 
 +------------+
+
 |            |
+
 |  Thread 1  |
+
 +------------+
-      |Locks Held List Thread 1
-      |
+
+|Locks Held List Thread 1
+
+|
 +-----+------+                       +------------+
+
 |   Lock 1   | <---------------------+            |
+
 +-----+------+     Waiting Lock      |  Thread 2  |
-      |                              +------------+
-      |                                    |Locks Held List Thread 2
+
+|                              +------------+
+
+|                                    |Locks Held List Thread 2
+
 +-----+------+                             |
+
 |   Lock 2   | <-------+             +-----+------+                       +------------+
+
 +------------+         |             |   Lock 3   | <---------------------+            |
-                       |             +------------+     Waiting Lock      |  Thread 3  |
-          Waiting Lock |                                                  +------------+
-                       |                                                        |Locks Held List Thread 3
-                       +------------+                                           |
-                       |            |                                     +-----+------+
-                       |  Thread 4  |                                     |   Lock 4   |
-                       +------------+                                     +------------+
-                             |Locks Held List Thread 4
-                             |
-                       +-----+------+                       +------------+
-                       |   Lock 5   | <---------------------+            |
-                       +------------+     Waiting Lock      |  Thread 5  |
+
+|             +------------+     Waiting Lock      |  Thread 3  |
+
+Waiting Lock |                                                  +------------+
+
+|                                                        |Locks Held List Thread 3
+
++------------+                                           |
+
+|            |                                     +-----+------+
+
+|  Thread 4  |                                     |   Lock 4   |
+
++------------+                                     +------------+
+
+|Locks Held List Thread 4
+
+|
+
++-----+------+                       +------------+
+
+|   Lock 5   | <---------------------+            |
+
++------------+     Waiting Lock      |  Thread 5  |
                                                             +------------+
 
 
@@ -189,17 +213,29 @@ For thread.c
 >> thread after each given number of timer ticks:
 
 timer  recent_cpu    priority   thread
+
 ticks   A   B   C   A   B   C   to run
+
 -----  --  --  --  --  --  --   ------
- 0      0   0   0  63  61  59     A
- 4      4   0   0  62  61  59     A
- 8      8   0   0  61  61  59     B
+
+0      0   0   0  63  61  59     A
+
+4      4   0   0  62  61  59     A
+
+8      8   0   0  61  61  59     B
+
 12      8   4   0  61  60  59     A
+
 16      12  4   0  60  60  59     B
+
 20      12  8   0  60  59  59     A
+
 24      16  8   0  59  59  59     C
+
 28      16  8   4  59  59  58     B
+
 32      16  12  4  59  58  58     A
+
 36      20  12  4  58  58  58     C
 
 >> C3: Did any ambiguities in the scheduler specification make values
