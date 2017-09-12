@@ -1,5 +1,5 @@
 		     +--------------------------+
-       	     |		CS 521				|
+       	             |	     CSE 521		|
 		     | PROJECT 2: USER PROGRAMS	|
 		     | 	   DESIGN DOCUMENT     	|
 		     +--------------------------+
