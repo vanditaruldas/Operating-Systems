@@ -127,8 +127,8 @@ ADVANCED SCHEDULER
 
 ---- DATA STRUCTURES ----
 
->> C1: Copy here the declaration of each new or changed `struct' or
->> `struct' member, global or static variable, `typedef', or
+>> C1: Copy here the declaration of each new or changed struct' or
+>> struct' member, global or static variable, typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
 In thread.h
