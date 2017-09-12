@@ -5,8 +5,8 @@
 			+--------------------+
 				   
 
-			     ALARM CLOCK
-			     ===========
+ALARM CLOCK
+===========
 
 ---- DATA STRUCTURES ----
 
@@ -59,8 +59,8 @@ As interrupts are turned off race conditions are avioded when timer interrupt oc
 This is implementation does not have too much overhead. The sleep ticks is stored in the thread which avaiable in the sleep list, so no extra fetching of data is required. Initially we had had called thread_foreach which looks at all the threads. This way is superior as it checks only the threads that are currently sleeping.
 
 
-			 PRIORITY SCHEDULING
-			 ===================
+PRIORITY SCHEDULING
+===================
 
 ---- DATA STRUCTURES ----
 
@@ -157,8 +157,8 @@ A race could occur while the priority is being changed if the timer_interrupt al
 
 This is the simplest and most efficient way to store all the priorities and run through a chain if required. Initially we considered maintaining a list of threads that we were waiting on a thread to release a lock but that would have taken up too much space of the thread and also would have been very complicated and in efficient way to check for chains.
 
-			  ADVANCED SCHEDULER
-			  ==================
+ADVANCED SCHEDULER
+==================
 
 ---- DATA STRUCTURES ----
 
