@@ -14,8 +14,8 @@ ARGUMENT PASSING
 
 ---- DATA STRUCTURES ----
 
->> A1: Copy here the declaration of each new or changed `struct' or
->> `struct' member, global or static variable, `typedef', or
+>> A1: Copy here the declaration of each new or changed struct' or
+>> struct' member, global or static variable, typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
 struct thread : char *prog_name						/* Program name*/
@@ -48,8 +48,8 @@ SYSTEM CALLS
 
 ---- DATA STRUCTURES ----
 
->> B1: Copy here the declaration of each new or changed `struct' or
->> `struct' member, global or static variable, `typedef', or
+>> B1: Copy here the declaration of each new or changed struct' or
+>> struct' member, global or static variable, typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
 struct file_fd
