@@ -1,6 +1,6 @@
 Implementing Process Termination Messages, Argument Passing, System Calls and Denying Writes to Executables.
 
-		+--------------------------+
+		     +--------------------------+
        	     |	     CSE 521		|
 		     | PROJECT 2: USER PROGRAMS	|
 		     | 	   DESIGN DOCUMENT     	|
